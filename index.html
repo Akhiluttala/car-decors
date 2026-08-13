@@ -78,7 +78,7 @@
                 
 
                 <p class="hero-label">
-                    CAR ACCESSORIES & CUSTOMIZATION IN Ramanthapur
+                    CAR ACCESSORIES & CUSTOMIZATION IN Entrance Street No-8, Ramanthapur
                 </p>
 
                 <h1>
@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="hero-location">
-                    📍 Ramanthapur, Hyderabad
+                    📍 Entrance Street No - 8, Ramanthapur, Hyderabad
                 </div>
 
             </div>
@@ -254,18 +254,18 @@
                     <h2>Your Car. Your Style. Our Expertise.</h2>
 
                     <p>
-                        Galaxy Car Decors is a car accessories and customization destination in Ramanthapur, Hyderabad, helping car owners upgrade their vehicles with quality products and professional fitting.
+                        Galaxy Car Decors is a car accessories and customization destination in Entrance street No-8, Ramanthapur, Hyderabad, helping car owners upgrade their vehicles with quality products and professional fitting.
                     </p>
 
                     <p>
-                        From seat covers and 7D mats to Android screens, speakers, ambient lighting and interior customization, we offer a wide range of options for different car brands, models and budgets.
-                    </p>
+                        From seat covers, Full matting,  7D mats to Android screens, speakers, amp Woofer, Center Locking, power windows, ambient lighting, Led Headlights, Car Tinting, Teflon Coating and interior customization, we offer a wide range of options for different car brands and models.                   </p>
 
                     <p>
                         Our focus is simple — provide genuine products, quality workmanship, professional fitting and helpful customer service at affordable to mid-range prices.
                     </p>
 
                     <div class="about-points">
+                        <p>← Spacious Workshop in Our Cellar</p>
                         <p>✓ Professional Fitting</p>
                         <p>✓ Experienced Technicians</p>
                         <p>✓ Genuine Products</p>
@@ -298,8 +298,8 @@
                     <img src="css/Gallery/seat covers-2.jpeg" alt="Car customization work 1">
                     <img src="css/Gallery/Mats.jpeg" alt="Car customization work 2">
                     <img src="css/Gallery/Andriod-Screens.jpeg" alt="Car customization work 3">
-                    <img src="css/Gallery/screens.jpeg" alt="Car customization work 4">
-                    <img src="css/Gallery/fitting2.jpeg" alt="Car customization work 5">
+                    <img src="css/Gallery/Andriod-screen-3.jpeg" alt="Car customization work 4">
+                    <img src="css/Gallery/Workshop-2.jpeg" alt="Car customization work 5">
                     <img src="css/Gallery/fitting.jpeg" alt="Car customization work 6">
                 </div>
 
@@ -331,8 +331,8 @@
         <!-- Video 1 -->
         <div class="video-card">
           <video
-            src="Videos/Lighting.mp4"
-            poster="css/Gallery/lighting.jpeg"
+            src="Videos/video-1.mp4"
+            poster="css/Gallery/fitting2.jpeg"
             autoplay
             muted
             loop
@@ -357,7 +357,7 @@
         <!-- Video 3 -->
         <div class="video-card">
           <video
-            src="Videos/PPF.mp4"
+            src="Videos/video-2.mp4"
             poster="css/Services/pfp.jpg"
             autoplay
             muted
@@ -377,6 +377,112 @@
 
   </div>
 </section>
+
+
+
+
+
+<!-- ===== INSTAGRAM FEED WITH STATS ===== -->
+<section class="instagram-feed" id="instagram">
+  <div class="section-inner">
+    <p class="eyebrow center">Follow our Instagram</p>
+    <h2 class="center">galaxy_car_decors</h2>
+    
+    <div class="instagram-stats-container">
+      <!-- Instagram Feed -->
+      <div class="instagram-embed-wrapper">
+        <div class="instagram-embed">
+          <iframe src="https://www.instagram.com/galaxy_car_decors/embed" 
+                  width="100%" 
+                  height="600" 
+                  frameborder="0" 
+                  style="margin: 0 auto; display: block; border-radius: 12px;"
+                  title="Instagram Feed">
+          </iframe>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="https://instagram.com/galaxy_car_decors" target="_blank" rel="noopener" class="btn btn-gold">
+            Follow
+          </a>
+        </div>
+      </div>
+
+      <!-- Animated Stats -->
+      <div class="stats-wrapper">
+        <div class="stat-card">
+          <div class="stat-number" data-target="15000"></div>
+          <p class="stat-label">Products Installed</p>
+        </div>
+        
+        
+        <div class="stat-card">
+          <div class="stat-number" data-target="100">0</div>
+          <p class="stat-label">Fitment Gaurantee</p>
+          <p class="stat-suffix">%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Animated Counter Function - Improved Version
+(function() {
+  function animateCounters() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    if (statNumbers.length === 0) {
+      console.warn('No .stat-number elements found');
+      return;
+    }
+    
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.animated) {
+          const element = entry.target;
+          element.dataset.animated = 'true';
+          
+          const target = parseInt(element.dataset.target);
+          const duration = 5000; // 5 seconds
+          const increment = target / (duration / 16); // 60fps
+          let current = 0;
+          let animationId = null;
+          
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              element.textContent = Math.floor(current).toLocaleString();
+              animationId = requestAnimationFrame(updateCounter);
+            } else {
+              element.textContent = target.toLocaleString();
+            }
+          };
+          
+          updateCounter();
+          observer.unobserve(element);
+        }
+      });
+    }, observerOptions);
+    
+    statNumbers.forEach(number => observer.observe(number));
+  }
+
+  // Run immediately if DOM is ready, otherwise wait for DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateCounters);
+  } else {
+    animateCounters();
+  }
+})();
+</script>
+
+
+ 
 
         <!-- =========================================
              WHY CHOOSE US
@@ -454,7 +560,7 @@
                 <div class="section-heading">
                     <p class="eyebrow">CUSTOMER REVIEWS</p>
                     <h2>Trusted by Car Owners</h2>
-                    <P>Rated 4.9★ on Google based on 66 customer reviews.</P>
+                    <P>Rated 4.9★ on Google reviews.</P>
                 </div>
 
                 <div class="reviews-grid">
@@ -540,8 +646,10 @@
 
                         <p>
                             🕒 <strong>Opening Hours:</strong><br>
-                            Monday – Sunday: 9:00 AM – 8:00 PM
+                            Monday – Saturday: 10:00 AM – 9:00 PM
+                            
                         </p>
+                        <p>Sunday : 10:00 AM - 4:00 PM</p>
                     </div>
 
                 </div>

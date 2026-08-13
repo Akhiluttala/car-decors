@@ -34,6 +34,8 @@ button {
     font-family: inherit;
 }
 
+
+
 /* =========================================
    VARIABLES
 ========================================= */
@@ -311,6 +313,7 @@ button {
 
 .section {
     padding: 100px 0;
+    
 }
 
 .section-heading {
@@ -344,9 +347,6 @@ button {
    SERVICES
 ========================================= */
 
-.services-section {
-    background: #f8fafc;
-}
 
 .services-grid {
     display: grid;
@@ -456,7 +456,7 @@ button {
 ========================================= */
 
 .gallery-section {
-    background: #f8fafc;
+    background: var(--dark);
 }
 
 .gallery-grid {
@@ -477,6 +477,266 @@ button {
     transform: scale(1.02);
 }
 
+
+
+/* ===== INSTAGRAM FEED SECTION WITH STATS ===== */
+.instagram-feed {
+  background-color: var(--white);
+  padding: 5rem 2rem;
+}
+
+.instagram-feed{
+    background: var(--dark);
+}
+
+
+.instagram-feed .eyebrow,
+.instagram-feed h2 {
+  margin-bottom: 3rem;
+  color: white;
+}
+
+/* Main container for Instagram + Stats side-by-side */
+.instagram-stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Instagram embed wrapper */
+.instagram-embed-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.instagram-embed {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.instagram-embed:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.btn-gold{
+    color: white;
+    background-color: #4050F6;
+    width: 100%;
+    transition-duration: 3s;
+}
+
+
+.instagram-embed iframe {
+  border-radius: 12px;
+  display: block;
+  width: 100%;
+}
+
+/* Stats Wrapper */
+.stats-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Individual Stat Cards */
+.stat-card {
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.stat-card:hover {
+  border-color: black;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15);
+}
+
+.stat-card:hover::before {
+  left: 100%;
+}
+
+/* Stat Numbers */
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: black;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  font-family: 'Courier New', monospace; /* Numbers in a clean monospace for clarity */
+  letter-spacing: -0.02em;
+}
+
+.stat-suffix {
+  display: inline;
+  font-size: 1.25rem;
+  color:  black;
+  font-weight: 600;
+  margin-left: 0.25rem;
+}
+
+/* Stat Labels */
+.stat-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-card p {
+  margin: 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet (768px and below) */
+@media (max-width: 1024px) {
+  .instagram-stats-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .stats-wrapper {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    flex: 1;
+    padding: 2rem 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile (568px and below) */
+@media (max-width: 768px) {
+  .instagram-feed {
+    padding: 3rem 1.5rem;
+  }
+
+  .instagram-feed .eyebrow,
+  .instagram-feed h2 {
+    margin-bottom: 2rem;
+  }
+
+  .instagram-stats-container {
+    gap: 2rem;
+  }
+
+  .stats-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+
+  /* Instagram embed - reduce height on mobile */
+  .instagram-embed iframe {
+    height: auto;
+    max-height: 500px;
+  }
+
+  .instagram-embed-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .instagram-embed-wrapper .btn {
+    width: 100%;
+  }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+  .instagram-feed {
+    padding: 2rem 1rem;
+  }
+
+  .instagram-stats-container {
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+
+  .instagram-embed-wrapper .btn {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .stat-card {
+    transition: none;
+  }
+
+  .stat-card:hover {
+    transform: none;
+  }
+
+  .stat-card::before {
+    display: none;
+  }
+
+  .stat-number {
+    transition: none;
+  }
+}
+
+
+
+
+
 /* =========================================
    WHY CHOOSE US
 ========================================= */
@@ -486,6 +746,7 @@ button {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
+
 
 .why-card {
     padding: 30px;
@@ -521,9 +782,7 @@ button {
    REVIEWS
 ========================================= */
 
-.reviews-section {
-    background: #f8fafc;
-}
+
 
 .reviews-grid {
     display: grid;
