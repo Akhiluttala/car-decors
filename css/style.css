@@ -854,6 +854,7 @@ button {
 ========================================= */
 
 .location-grid {
+    background-color: var(rgb(6,10,15));
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
